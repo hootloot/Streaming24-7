@@ -6,7 +6,7 @@ from discord.ext import commands
 
 #playlist path
 #path = "/home/pi/Downloads"
-TOKEN = 'NzcwNDMyMTA0MzU4MDg0NjM5.X5dezw.D-WmwOvO9FUExkRMguhlROk4Hso'
+TOKEN = 'token'
 client = commands.Bot(command_prefix = '!')
 folder = "/path/to/the/video/folder"
 
