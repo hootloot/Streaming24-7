@@ -1,0 +1,20 @@
+{
+  "overall": [
+    {
+      "path1" : "/path/to/movie1",
+      "dur1" : 56,
+      "desc1" : "A Russian Man",
+      "genre1" : "Horror"
+    },
+    {
+      "path2" : "/path/to/movie2",
+      "dur2" : 34,
+      "desc2" : "Bruh rbuh rbuhr buh",
+      "genre2" : "Comedy"
+
+    }
+
+  ]
+
+
+}
