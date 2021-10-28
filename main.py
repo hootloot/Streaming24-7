@@ -80,6 +80,7 @@ async def movie(ctx, member: discord.Member = None):
 
 @client.command(name = "showings")
 #Plan to fix the structure of this code it is messey
+#move the embed context code under the for loop
 async def showings(ctx, member: discord.Member = None):
   member = ctx.author if not member else member
   embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="Movie Showings")
