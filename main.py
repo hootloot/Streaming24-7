@@ -18,9 +18,8 @@ async def on_ready():
   f = open('main.json')
   data = json.load(f)
   m_index = 0
-  for i in data["overall"]:
-    #iter in the json, sections of overall
-    #opens channel and path every ilter
+  for i in data["overall"]:    
+    #IN THIS FUNC MAKE THE PROCESS MORE EFFICENT WITH USE OF LOOPS/DICT (type hint for json reading/writing?)
     channel = client.get_channel(742148980682784793)
     videoList = os.system(folder) #for json; do videoList = os.listdir(i['name']) 
     m_index += 1 
@@ -30,20 +29,20 @@ async def on_ready():
     genre = i['genre' + str(m_index)]
     target = os.path.join(videoList, video)
     res_str = video.replace('.mp4', '')
+    #sending messages; plan to send an embed instead
     await channel.send(res_str + ' is playing')
     await channel.send(i['desc' + str(m_index)])
     os.system('omxplayer "{}" > /dev/null'.format(target))
     open_w = open('current.txt', 'r+')
-    #open txt file, then clears, then writes name of file name - .mp4
     open_w.truncate(0)
     open_w.write(res_str + '\n') 
     open_w.write(dur + '\n')
     open_w.write(desc + '\n')
     open_w.write(genre + '\n')
-      #video is playing, add commands below
 
 
 @client.command(name = "help")
+#help looks fine, but plan to use thumbnail instead of a image
 async def help(ctx,  member: discord.Member = None):
   member = ctx.author if not member else member
   embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="How To Use The Bot")
@@ -80,9 +79,10 @@ async def movie(ctx, member: discord.Member = None):
   await ctx.send(embed=embed)
 
 @client.command(name = "showings")
+#Plan to fix the structure of this code it is messey
 async def showings(ctx, member: discord.Member = None):
   member = ctx.author if not member else member
-  embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="Moive Showings")
+  embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="Movie Showings")
   embed.set_footer(text=f"Hello, {ctx.author}", icon_url=ctx.author.avatar_url)
   f = open('main.json')
   data = json.load(f)
