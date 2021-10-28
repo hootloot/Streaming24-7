@@ -43,7 +43,7 @@ async def on_ready():
       #video is playing, add commands below
 
 
-@client.command
+@client.command(name = "help")
 async def help(ctx,  member: discord.Member = None):
   member = ctx.author if not member else member
   embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="How To Use The Bot")
@@ -54,7 +54,7 @@ async def help(ctx,  member: discord.Member = None):
 
   await ctx.send(embed=embed)
 
-@client.command
+@client.command(name = "movie")
 async def movie(ctx, member: discord.Member = None):
   #reads the txt file to read lines 1 n 2
   current = open('current.txt', 'r')
@@ -79,7 +79,7 @@ async def movie(ctx, member: discord.Member = None):
   
   await ctx.send(embed=embed)
 
-@client.command
+@client.command(name = "showings")
 async def showings(ctx, member: discord.Member = None):
   member = ctx.author if not member else member
   embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="Moive Showings")
