@@ -4,13 +4,14 @@ import random
 import discord
 from discord.ext import commands
 
-#playlist path
-#path = "/home/pi/Downloads"
+#PLAN for Oct 28 Comp sci class
+#Work on last func (showings)
+#Downloads videos, run program to test
+#Fix
+
 TOKEN = 'token'
 client = commands.Bot(command_prefix = '!')
 folder = "/path/to/the/video/folder"
-
-#ll = input('Server Mode? *Be sure to have ssh on?: ')
 
 @client.event
 async def on_ready():
@@ -80,7 +81,7 @@ async def movie(ctx, member: discord.Member = None):
 
 @client.command(name = "showings")
 #Plan to fix the structure of this code it is messey
-#move the embed context code under the for loop
+#move the embed context code under the for loop (can it send messages under a loop?)
 async def showings(ctx, member: discord.Member = None):
   member = ctx.author if not member else member
   embed = discord.Embed(color=0x5207df, timestamp=ctx.message.created_at, title="Movie Showings")
@@ -93,7 +94,12 @@ async def showings(ctx, member: discord.Member = None):
     embed.set_footer(text="The " + str(i_index) + "rd Movie")
     embed.add_field(name=i['path'] + str(i_index), value = i['desc' + str(i_index)])
     await ctx.send(embed=embed)
-
+#open json
+#for loop (overall)
+#send a embed each time there is a movie for index
+#Have footer/Name/Desc/i_index
+#time module + the duration from json to caculate the when the movie will be on?
+#plan to only show the next 5 movies or the next movies for all (depends on how many movies)
 
 client.run(TOKEN)
 
