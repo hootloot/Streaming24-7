@@ -37,9 +37,9 @@ async def on_ready():
     #open txt file, then clears, then writes name of file name - .mp4
     open_w.truncate(0)
     open_w.write(res_str + '\n') 
-    open_w.write(dur)
-    open_w.write(desc)
-    open_w.write(genre)
+    open_w.write(dur + '\n')
+    open_w.write(desc + '\n')
+    open_w.write(genre + '\n')
       #video is playing, add commands below
 
 
